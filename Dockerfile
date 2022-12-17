@@ -72,4 +72,7 @@ RUN set -ex \
     && pip3 install --no-cache-dir -r https://raw.githubusercontent.com/$ORG/$PROJECT/$BRANCH/requirements.txt \
     && sudo -- sh -c "apt-get -qqy purge --auto-remove tzdata unzip apt-utils build-essential; apt-get -qqy clean; rm -rf -- /home/app/.cache /root/.cache /var/lib/apt/lists/* /var/cache/apt/archives/* /etc/apt/sources.list.d/* /usr/share/man/* /usr/share/doc/* /var/log/* /tmp/* /var/tmp/* /etc/sudoers.d/app"
 
-CMD ["python3", "-m", "getter"]
+EXPOSE 80 443
+
+CMD ["python3"]
+
